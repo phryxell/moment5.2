@@ -32,6 +32,6 @@ komprimering av bilder, möjlighet att se från vilken källkodsfil koden urspru
 automatiskt överföring av arbetsfiler till publiceringsmapp.
 
 #### Steg för steg:
- - Klona projektet genom *$ git clone https://github.com/phryxell/moment2.git*
- - I rotkatalogen återskapa node_modules i terminalen genom *$ npm install*
- - Initiera gulpjs i terminalen genom *$ gulp*
+ - Klona projektet genom **$ git clone https://github.com/phryxell/moment2.git**
+ - I rotkatalogen återskapa node_modules i terminalen genom **$ npm install**
+ - Initiera gulpjs i terminalen genom **$ gulp**
