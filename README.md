@@ -30,3 +30,8 @@ se från vilken källkodsfil respektive kod kommer ifrån.
 De funktioner (tasks) som ingår är konkatenering och minifiering av SCSS- samt JS-kod (kompilering för SCSS till CSS), 
 komprimering av bilder, möjlighet att se från vilken källkodsfil koden ursprungligen kommer ifrån samt
 automatiskt överföring av arbetsfiler till publiceringsmapp.
+
+#### Steg för steg:
+ - Klona projektet genom **$ git clone https://github.com/phryxell/moment2.git**
+ - I rotkatalogen återskapa node_modules i terminalen genom **$ npm install**
+ - Initiera gulpjs i terminalen genom **$ gulp**
