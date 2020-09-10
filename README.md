@@ -7,6 +7,8 @@ Syftet med att automatisera, bland annat ovan nämda processer, är att effektiv
 ### Dev-dependencies för repot:
 
  - _gulp-sass_ (npm install node-sass gulp-sass --save-dev) ger användaren möjlighet att skriva SCSS genom SASS och minifiera koden samt kompilera detta till CSS.
+ 
+ - _gulp-autoprefixer_ - Lägger till webbläsarspecifika CSS-prefix.
 
  - _gulp-sourcemaps_ (krävs ingen "egen" inställning) ger användaren möjlighet att "spåra" från vilken källkodsfil koden ursprungligen kommer ifrån.
 
@@ -32,6 +34,10 @@ komprimering av bilder, möjlighet att se från vilken källkodsfil koden urspru
 automatiskt överföring av arbetsfiler till publiceringsmapp.
 
 #### Steg för steg:
+
+```
  - Klona projektet genom **$ git clone https://github.com/phryxell/moment2.git**
- - I rotkatalogen återskapa node_modules i terminalen genom **$ npm install**
+ - Dirigera in i arbetsmappen moment2 **$ cd  moment2**
+ - Installera alla nödvändiga moduler **$ npm install**
  - Initiera gulpjs i terminalen genom **$ gulp**
+ ```
