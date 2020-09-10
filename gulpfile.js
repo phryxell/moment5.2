@@ -1,3 +1,4 @@
+// Load the required modules
 const { src, dest, watch, series, parallel  } = require("gulp");
 var concat = require('gulp-concat');
 const terser = require('gulp-terser');
@@ -11,43 +12,37 @@ const autoprefixer = require('autoprefixer');
 
 sass.compiler = require('node-sass');
 
-// Src
+// Set paths
 const files = {
     htmlPath: "src/**/*.html",
     imgPath: "src/images/*",
     sassPath: "src/**/*.scss",
-    cssPath: "src/**/*.css",
     jsPath: "src/**/*.js"
 }
 
-// Copy HTML
+// Copy all HTML files to pub folder 
 function copyHTML() {
     return src(files.htmlPath)
     .pipe(dest('pub')
     );
 }
 
-// Copy CSS
-function cssTask() {
-    return src(files.cssPath)
-     .pipe(sourcemaps.init())
-     .pipe(concat('styles.css'))
-     .pipe(postcss([autoprefixer(), cssnano()]))
-     .pipe(sourcemaps.write('.')
-     .pipe(dest('pub/css')));
-}
-
-// Copy Sass and return as CSS
+/* 
+ * Concatenate all SASS files into one file
+ * Postcss used for simultaneously add vendor prefixes and minify code
+ * Then move file to folder pub/css
+ */
 function styleTask() {
     return src(files.sassPath)
     .pipe(sourcemaps.init())
     .pipe(concat('styles.css'))
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write('.'))
     .pipe(dest('pub/css'));
 }
 
-// Copy Images and minify them
+// Minify all added images, then move them to folder pub/images
 function imageMin() {
     return src(files.imgPath)
     .pipe(imagemin())
@@ -55,7 +50,11 @@ function imageMin() {
     );
 }
 
-// Concat and minify js-files
+/*
+ * Concatenate all JS files into one file
+ * Use terser to minify the code
+ * Then move the new file to pub-folder
+ */
 function jsTask() {
     return src(files.jsPath)
     .pipe(sourcemaps.init())
@@ -66,7 +65,10 @@ function jsTask() {
     );
 }
 
-// Watch tasks
+/*
+ * Watch all folders and run their functions when changes occur
+ * BrowserSync reacts to changes and reloads window
+ */
 function watchTask() {
     browserSync.init({
         server: {
@@ -77,11 +79,10 @@ function watchTask() {
     watch(files.imgPath, imageMin).on('change', browserSync.reload);
     watch(files.jsPath, jsTask).on('change', browserSync.reload);
     watch(files.sassPath, styleTask).on('change', browserSync.reload);
-    watch(files.cssPath, cssTask).on('change', browserSync.reload);
 }
 
-// Default task
+// Default, export all tasks, initialized by 'gulp' command
 exports.default = series(
-    parallel(copyHTML, jsTask, imageMin, styleTask, cssTask),
+    parallel(copyHTML, jsTask, imageMin, styleTask),
     watchTask
 );
