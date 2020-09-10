@@ -36,8 +36,8 @@ automatiskt överföring av arbetsfiler till publiceringsmapp.
 #### Steg för steg:
 
 ```
- - Klona projektet genom ** $ git clone https://github.com/phryxell/moment2.git **
- - Dirigera in i arbetsmappen moment2 ** $ cd  moment2 **
- - Installera alla nödvändiga moduler ** $ npm install **
- - Initiera gulpjs i terminalen genom ** $ gulp **
+ - Klona projektet genom $ git clone https://github.com/phryxell/moment2.git 
+ - Dirigera in i arbetsmappen moment2  $ cd  moment2 
+ - Installera alla nödvändiga moduler  $ npm install 
+ - Initiera gulpjs i terminalen genom  $ gulp 
  ```
