@@ -5,9 +5,9 @@ const imagemin = require('gulp-imagemin');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
-var postcss = require('gulp-postcss');
-var cssnano = require('gulp-cssnano');
-const autoprefixer = require('gulp-autoprefixer');
+const postcss = require('gulp-postcss');
+const cssnano = require('cssnano');
+const autoprefixer = require('autoprefixer');
 
 sass.compiler = require('node-sass');
 
@@ -29,7 +29,7 @@ function copyHTML() {
 
 // Copy CSS
 function cssTask() {
-    return src(cssPath)
+    return src(files.cssPath)
      .pipe(sourcemaps.init())
      .pipe(concat('styles.css'))
      .pipe(postcss([autoprefixer(), cssnano()]))
