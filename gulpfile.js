@@ -6,9 +6,7 @@ const imagemin = require('gulp-imagemin');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
-const postcss = require('gulp-postcss');
-const cssnano = require('cssnano');
-const autoprefixer = require('autoprefixer');
+const autoprefixer = require('gulp-autoprefixer');
 
 sass.compiler = require('node-sass');
 
@@ -36,10 +34,11 @@ function styleTask() {
     return src(files.sassPath)
     .pipe(sourcemaps.init())
     .pipe(concat('styles.css'))
-    .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+    .pipe(autoprefixer())
     .pipe(sourcemaps.write('.'))
-    .pipe(dest('pub/css'));
+    .pipe(dest('pub/css')
+    );
 }
 
 // Minify all added images, then move them to folder pub/images

@@ -1,5 +1,18 @@
-$main-font: #080808;
+$header-font: #080808;
+$text-font: #012980;
 
 body {
-    color: $main-font;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    h1, h2, h3 {
+        color:$header-font;
+        text-align: center;
+    }
+    p {
+        color:$text-font;
+        text-align: center;
+        font-size: 1.3em;
+        font-weight: 400;
+    }
 }

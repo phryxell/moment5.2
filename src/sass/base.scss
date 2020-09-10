@@ -1,5 +1,14 @@
-$bgColor: #cccccc;
+$bgColor: #e7e7e7;
 
 body {
     background: $bgColor;
+    .picture {
+        margin:0 auto;
+        width: 50%;
+        padding:1em;
+    }
+    .picture img {
+        height:100%;
+        width: 100%;
+    }
 }
