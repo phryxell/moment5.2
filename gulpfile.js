@@ -5,6 +5,9 @@ const imagemin = require('gulp-imagemin');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
+var postcss = require('gulp-postcss');
+var cssnano = require('gulp-cssnano');
+const autoprefixer = require('gulp-autoprefixer');
 
 sass.compiler = require('node-sass');
 
@@ -12,7 +15,8 @@ sass.compiler = require('node-sass');
 const files = {
     htmlPath: "src/**/*.html",
     imgPath: "src/images/*",
-    sassPath: "src/sass/**/*.scss",
+    sassPath: "src/**/*.scss",
+    cssPath: "src/**/*.css",
     jsPath: "src/**/*.js"
 }
 
@@ -21,6 +25,16 @@ function copyHTML() {
     return src(files.htmlPath)
     .pipe(dest('pub')
     );
+}
+
+// Copy CSS
+function cssTask() {
+    return src(cssPath)
+     .pipe(sourcemaps.init())
+     .pipe(concat('styles.css'))
+     .pipe(postcss([autoprefixer(), cssnano()]))
+     .pipe(sourcemaps.write('.')
+     .pipe(dest('pub/css')));
 }
 
 // Copy Sass and return as CSS
@@ -63,10 +77,11 @@ function watchTask() {
     watch(files.imgPath, imageMin).on('change', browserSync.reload);
     watch(files.jsPath, jsTask).on('change', browserSync.reload);
     watch(files.sassPath, styleTask).on('change', browserSync.reload);
+    watch(files.cssPath, cssTask).on('change', browserSync.reload);
 }
 
 // Default task
 exports.default = series(
-    parallel(copyHTML, jsTask, imageMin, styleTask),
+    parallel(copyHTML, jsTask, imageMin, styleTask, cssTask),
     watchTask
 );
