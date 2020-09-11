@@ -1,20 +1,76 @@
 <!DOCTYPE html>
-<html lang="se">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/sass.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Philip Fryxell Portfolio</title>
 </head>
+
 <body>
-    <h1>Hej, jag är din mall</h1>
-    <div class="picture">
-        <img src="images/workstation.jpg" alt="Bild på en arbetsstation">
+
+    <header>
+        
+    <div class="menu-btn">
+        <span class="menu-btn__burger">
+            
+        </span>
     </div>
-    <div class="text-holder"><p>Hoppas att jag kan stå till din tjänst.</p></div>
-    <p class="typo">Färgsättning typo.css</p>
-    <div class="gitlink" ><a href="https://github.com/phryxell/moment2" target="_blank">GitHub</a></div>
+
+    <nav class="nav">
+        <ul class="menu-nav">
+            <li class="menu-nav__item active">
+                <a href="index.html" class="menu-nav__link">Hem</a>
+            </li>
+            <li class="menu-nav__item">
+                <a href="about.html" class="menu-nav__link">Om mig</a>
+            </li>
+            <li class="menu-nav__item">
+                <a href="projects.html" class="menu-nav__link">Projekt</a>
+            </li>
+            <li class="menu-nav__item">
+                <a href="contact.html" class="menu-nav__link">Kontakt</a>
+            </li>
+        </ul>
+    </nav>
+
+    </header>
+
+    <main>
+    <section class="home">
+        <h2>Hej! Jag heter</h2>
+        <h1 class="home__name">
+            Philip <span class="home__name--last">Fryxell</span>
+        </h1>
+        <h2>Webbutvecklare</h2>
+
+        <div class="social-icons">
+            <a href="#!">
+                <i class="fab fa-twitter fa-2x"></i>
+            </a>
+            <a href="#!">
+                <i class="fab fa-facebook fa-2x"></i>
+            </a>
+            <a href="#!">
+                <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a href="#!">
+                <i class="fab fa-github fa-2x"></i>
+            </a>
+        </div>
+
+        <footer>&copy; Copyright 2020</footer>
+    </section>
+    </main>
+
+
+    <script
+    src="https://kit.fontawesome.com/ab924046e2.js"
+    crossorigin="anonymous"
+  ></script>
     <script src="js/main.js"></script>
 </body>
 </html>

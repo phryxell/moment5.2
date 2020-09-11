@@ -57,7 +57,8 @@ function styleTask() {
     .pipe(concat('sass.css'))
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(sourcemaps.write('.'))
-    .pipe(dest('pub/css')
+    .pipe(dest('pub/css'))
+    .pipe(browserSync.stream()
     );
 }
 
