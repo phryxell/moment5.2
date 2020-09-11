@@ -8,6 +8,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
 
+// Needed for SASS to compile to CSS
 sass.compiler = require('node-sass');
 
 // Set paths
@@ -27,7 +28,9 @@ function copyHTML() {
 
 /* 
  * Concatenate all SASS files into one file
- * Postcss used for simultaneously add vendor prefixes and minify code
+ * Initialize sourcemaps
+ * Outputstyle 'compressed' minifys code
+ * Add vendor prefixes
  * Then move file to folder pub/css
  */
 function styleTask() {
