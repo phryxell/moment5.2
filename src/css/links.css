@@ -1,0 +1,12 @@
+.gitlink {
+    text-align: center;
+    margin:2em;
+}
+
+a {
+    background: rgb(102, 192, 114);
+    padding:.5em;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 15px;
+}

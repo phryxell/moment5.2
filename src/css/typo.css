@@ -1,0 +1,11 @@
+.typo {
+    color:rgb(72, 150, 69);
+    font-size: 1em;
+    font-weight: 500;
+}
+
+a:hover{
+    color:rgb(102, 192, 114);
+    background:#FFFFFF;
+    border: 2px solid rgb(102, 192, 114);
+}

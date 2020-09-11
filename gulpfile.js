@@ -39,8 +39,8 @@ function cssTask() {
      .pipe(concat('main.css'))
      .pipe(postcss([autoprefixer(), cssnano()]))
      .pipe(sourcemaps.write('.'))
-     .pipe(dest('pub/css')
-     );
+     .pipe(dest('pub/css'))
+     .pipe(browserSync.stream());
 }
 
 /* 
@@ -53,7 +53,6 @@ function styleTask() {
     .pipe(sourcemaps.init())
     .pipe(concat('sass.css'))
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-    .pipe(autoprefixer())
     .pipe(sourcemaps.write('.'))
     .pipe(dest('pub/css')
     );
@@ -101,6 +100,6 @@ function watchTask() {
 
 // Default, export all tasks, initialized by 'gulp' command
 exports.default = series(
-    parallel(copyHTML, jsTask, imageMin, styleTask, cssTask),
+    parallel(copyHTML, jsTask, imageMin, cssTask, styleTask),
     watchTask
 );
