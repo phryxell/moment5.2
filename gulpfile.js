@@ -3,12 +3,12 @@ const { src, dest, watch, series, parallel  } = require("gulp");
 var concat = require('gulp-concat');
 const terser = require('gulp-terser');
 const imagemin = require('gulp-imagemin');
-const postcss = require('gulp-postcss');
+var postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
-const autoprefixer = require('gulp-autoprefixer');
+const autoprefixer = require('autoprefixer');
 
 sass.compiler = require('node-sass');
 
@@ -38,8 +38,9 @@ function cssTask() {
      .pipe(sourcemaps.init())
      .pipe(concat('main.css'))
      .pipe(postcss([autoprefixer(), cssnano()]))
-     .pipe(sourcemaps.write('.')
-     .pipe(dest('pub/css')));
+     .pipe(sourcemaps.write('.'))
+     .pipe(dest('pub/css')
+     );
 }
 
 /* 
@@ -50,7 +51,7 @@ function cssTask() {
 function styleTask() {
     return src(files.sassPath)
     .pipe(sourcemaps.init())
-    .pipe(concat('styles.css'))
+    .pipe(concat('sass.css'))
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write('.'))
