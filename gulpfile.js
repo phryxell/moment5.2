@@ -14,6 +14,7 @@ sass.compiler = require('node-sass');
 const files = {
     htmlPath: "src/**/*.html",
     imgPath: "src/images/*",
+    cssPath: "src/**/*.css",
     sassPath: "src/**/*.scss",
     jsPath: "src/**/*.js"
 }
@@ -23,6 +24,20 @@ function copyHTML() {
     return src(files.htmlPath)
     .pipe(dest('pub')
     );
+}
+
+/* 
+ * Concatenate all CSS files into one file
+ * Postcss used for simultaneously add vendor prefixes and minify code
+ * Then move file to folder pub/css
+ */
+function cssTask() {
+    return src(files.cssPath)
+     .pipe(sourcemaps.init())
+     .pipe(concat('main.css'))
+     .pipe(postcss([autoprefixer(), cssnano()]))
+     .pipe(sourcemaps.write('.')
+     .pipe(dest('pub/css')));
 }
 
 /* 
@@ -77,11 +92,12 @@ function watchTask() {
     watch(files.htmlPath, copyHTML).on('change', browserSync.reload);
     watch(files.imgPath, imageMin).on('change', browserSync.reload);
     watch(files.jsPath, jsTask).on('change', browserSync.reload);
+    watch(files.cssPath, cssTask).on('change', browserSync.reload);
     watch(files.sassPath, styleTask).on('change', browserSync.reload);
 }
 
 // Default, export all tasks, initialized by 'gulp' command
 exports.default = series(
-    parallel(copyHTML, jsTask, imageMin, styleTask),
+    parallel(copyHTML, jsTask, imageMin, styleTask, cssTask),
     watchTask
 );
