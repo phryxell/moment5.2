@@ -8,6 +8,10 @@ Syftet med att automatisera, bland annat ovan nämda processer, är att effektiv
 
  - _gulp-sass_ (npm install node-sass gulp-sass --save-dev) ger användaren möjlighet att skriva SCSS genom SASS och minifiera koden samt kompilera detta till CSS.
  
+ - _gulp-postcss_ - Används för att leda CSS genom flera olika plugins men CSS-koden läses bara in en gång, vilket gör att det blir en snabbare process.
+
+ - _cssnano_ - Minifierar CSS-kod. Fungerar att samköra med postcss.
+ 
  - _gulp-autoprefixer_ - Lägger till webbläsarspecifika CSS-prefix.
 
  - _gulp-sourcemaps_ (krävs ingen "egen" inställning) ger användaren möjlighet att "spåra" från vilken källkodsfil koden ursprungligen kommer ifrån.
