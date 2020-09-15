@@ -92,6 +92,7 @@
   
               &.active > a {
                   color: $secondary-color;
+                  font-weight: 500;
               }
           }
   
@@ -110,7 +111,9 @@
       }
   }
   
-  @for $i from 1 through 4 {
+//For loop - for every item in the menu add an transition delay
+
+  @for $i from 1 through 5 {
       .menu-nav__item:nth-child(#{$i}) {
           transition-delay: ($i * 0.1s) + 0.15s;
       }

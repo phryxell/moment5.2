@@ -24,10 +24,6 @@
       }
     }
   
-    .about__bio {
-      font-size: 1.5rem;
-    }
-  
     .projects {
       &__bio-image {
         height: 40vh;
@@ -40,19 +36,16 @@
       }
     }
   
-    .contact__list {
-      grid-template-columns: repeat(2, 1fr);
-    }
   }
   
   @include media-lg {
     .projects {
       &__items {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
     }
     .contact__list {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   

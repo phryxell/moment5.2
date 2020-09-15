@@ -3,12 +3,9 @@ const { src, dest, watch, series, parallel  } = require("gulp");
 var concat = require('gulp-concat');
 const terser = require('gulp-terser');
 const imagemin = require('gulp-imagemin');
-var postcss = require('gulp-postcss');
-const cssnano = require('cssnano');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
-const autoprefixer = require('autoprefixer');
 
 // Needed for SASS to compile to CSS
 sass.compiler = require('node-sass');
@@ -17,8 +14,7 @@ sass.compiler = require('node-sass');
 const files = {
     htmlPath: "src/**/*.html",
     imgPath: "src/images/*",
-    cssPath: "src/**/*.css",
-    sassPath: "src/**/*.scss",
+    sassPath: "src/sass/*.scss",
     jsPath: "src/**/*.js"
 }
 
@@ -34,6 +30,7 @@ function copyHTML() {
  * Postcss used for simultaneously add vendor prefixes and minify code
  * Then move file to folder pub/css
  */
+/*
 function cssTask() {
     return src(files.cssPath)
      .pipe(sourcemaps.init())
@@ -43,6 +40,7 @@ function cssTask() {
      .pipe(dest('pub/css'))
      .pipe(browserSync.stream());
 }
+*/
 
 /* 
  * Concatenate all SASS files into one file
@@ -54,12 +52,11 @@ function cssTask() {
 function styleTask() {
     return src(files.sassPath)
     .pipe(sourcemaps.init())
-    .pipe(concat('sass.css'))
+    .pipe(concat('main.css'))
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(sourcemaps.write('.'))
     .pipe(dest('pub/css'))
-    .pipe(browserSync.stream()
-    );
+    .pipe(browserSync.stream());
 }
 
 // Minify all added images, then move them to folder pub/images
@@ -98,12 +95,11 @@ function watchTask() {
     watch(files.htmlPath, copyHTML).on('change', browserSync.reload);
     watch(files.imgPath, imageMin).on('change', browserSync.reload);
     watch(files.jsPath, jsTask).on('change', browserSync.reload);
-    watch(files.cssPath, cssTask).on('change', browserSync.reload);
     watch(files.sassPath, styleTask).on('change', browserSync.reload);
 }
 
 // Default, export all tasks, initialized by 'gulp' command
 exports.default = series(
-    parallel(copyHTML, jsTask, imageMin, cssTask, styleTask),
+    parallel(copyHTML, jsTask, imageMin, styleTask),
     watchTask
 );
