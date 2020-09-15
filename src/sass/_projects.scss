@@ -60,7 +60,7 @@
       left: 0;
       height: 100%;
       width: 100%;
-      background: $secondary-color;
+      background: lighten($secondary-color, 10%);
       opacity: 0;
       @include transition-ease;
     }
