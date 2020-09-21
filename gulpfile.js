@@ -3,9 +3,12 @@ const { src, dest, watch, series, parallel  } = require("gulp");
 var concat = require('gulp-concat');
 const terser = require('gulp-terser');
 const imagemin = require('gulp-imagemin');
+// var postcss = require('gulp-postcss');
+const cssnano = require('cssnano');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
+// const autoprefixer = require('autoprefixer');
 
 // Needed for SASS to compile to CSS
 sass.compiler = require('node-sass');
@@ -14,6 +17,7 @@ sass.compiler = require('node-sass');
 const files = {
     htmlPath: "src/**/*.html",
     imgPath: "src/images/*",
+    // cssPath: "src/**/*.css",
     sassPath: "src/sass/*.scss",
     jsPath: "src/**/*.js"
 }
@@ -95,10 +99,11 @@ function watchTask() {
     watch(files.htmlPath, copyHTML).on('change', browserSync.reload);
     watch(files.imgPath, imageMin).on('change', browserSync.reload);
     watch(files.jsPath, jsTask).on('change', browserSync.reload);
+    // watch(files.cssPath, cssTask).on('change', browserSync.reload);
     watch(files.sassPath, styleTask).on('change', browserSync.reload);
 }
 
-// Default, export all tasks, initialized by 'gulp' command
+// Default, export all tasks, initialized by 'gulp' command [Removed 'cssTask' from series]
 exports.default = series(
     parallel(copyHTML, jsTask, imageMin, styleTask),
     watchTask

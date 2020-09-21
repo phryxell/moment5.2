@@ -1,7 +1,7 @@
 $primary-color: #1b1b1b;
 $font-color: #FFFFFF;
 $secondary-color: #4ecdc4;
-$accent-color: #ff6b6b;
+$accent-color: darken($font-color, 30%);
 
 * {
   box-sizing: border-box;
