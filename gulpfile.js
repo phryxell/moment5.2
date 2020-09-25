@@ -79,6 +79,9 @@ function imageMin() {
 function jsTask() {
     return src(files.jsPath)
     .pipe(sourcemaps.init())
+    .pipe(babel({
+        presets: ['@babel/env']
+    }))
     .pipe(concat('main.js'))
     .pipe(terser())
     .pipe(sourcemaps.write('.'))
