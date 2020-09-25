@@ -9,6 +9,7 @@ var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
 // const autoprefixer = require('autoprefixer');
+const babel = require('gulp-babel');
 
 // Needed for SASS to compile to CSS
 sass.compiler = require('node-sass');
