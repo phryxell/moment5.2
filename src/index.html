@@ -8,90 +8,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ab924046e2.js" crossorigin="anonymous"></script>
-    <title>HobbyFotograf</title>
+    <title>Moment 5.2</title>
 </head>
 
 <body>
 
+  <main>
     <header>
-    <div class="menu-btn">
-        <span class="menu-btn__burger">
-            
-        </span>
-    </div>
-
-    <nav class="nav">
-        <ul class="menu-nav">
-            <li class="menu-nav__item active">
-                <a href="#" class="menu-nav__link">Hem</a>
-            </li>
-            <li class="menu-nav__item">
-                <a href="#" class="menu-nav__link">Galleri</a>
-            </li>
-            <li class="menu-nav__item">
-                <a href="#" class="menu-nav__link">Kontakt</a>
-            </li>
-            <li class="menu-nav__item">
-                <a href="#" class="menu-nav__link">Om Mig</a>
-            </li>
-            <li class="menu-nav__item">
-                <a href="#" class="menu-nav__link">FAQ</a>
-            </li>
-        </ul>
-    </nav>
-
+        <h1>Moment 5 - Webbtjänster</h1>
+        <h2>DT173G</h2>
     </header>
 
-    <main>
-        <section class="projects">
-          <div class="projects__bio-image">
-            <h1 class="text-secondary">HobbyFotograf</h1>
-          </div>
-    
-          <div class="projects__items">
-            <div class="projects__item">
-              <h2 class="picTitle">Mexico City</h2>
-              <img src="images/city.jpg" alt="My Project">
-              <div class="projects__btns">
-                <a href="#!" class="projects__btn">
-                  <i class="fas fa-download"></i> Ladda ner
-                </a>
-                <a href="#!" class="projects__btn">
-                  <i class="fas fa-info"></i> Läs mer
-                </a>
-            </div>
-            <p class="info-text">Bilden är tagen i Mexico City. Här var folket trevligt och all den street food vi älskar kan hittas här. Finemang!</p>
-            </div>
-            <div class="projects__item">
-              <h2 class="picTitle">Chichén Itzá</h2>
-              <img src="images/temple.jpg" alt="My Project">
-              <div class="projects__btns">
-                <a href="#!" class="projects__btn">
-                  <i class="fas fa-download"></i> Ladda ner
-                </a>
-                <a href="#!" class="projects__btn">
-                  <i class="fas fa-info"></i> Läs mer
-                </a>
-              </div>
-              <p class="info-text">Bilden är tagen vid Chichén Itzá. Historiskt monument, bara att ta med kameran och njuta en heldag. Finemang!</p>
-            </div>
-          </div>
+    <div class="content">
 
-        <div class="social-icons">
-            <a href="#!">
-                <i class="fab fa-twitter fa-2x"></i>
-            </a>
-            <a href="#!">
-                <i class="fab fa-facebook fa-2x"></i>
-            </a>
-            <a href="#!">
-                <i class="fab fa-instagram fa-2x"></i>
-            </a>
-        </div>
+        <div id="updateDiv"></div>
+        
 
-        <footer>&copy; Copyright 2020</footer>
-    </section>
-    </main>
+        <section>
+            <h2>Kurser jag har läst:</h2>
+            <div>
+                <div class="heading">
+                    <p class="box1">Kurskod</p>
+                    <p class="box2">Kursnamn</p>
+                    <p class="box3">Nivå</p>
+                    <p class="box4">Kursplan</p>
+                </div>
+                <div id="courses"></div> <!-- Where the courses goes -->
+            </div>
+        </section>
+        <section>
+            <h2>Lägg till ny kurs</h2>
+            <form method="get">
+                <label for="code">Kurskod</label>
+                <input type="text" name="code" id="code"> <br>
+                <label for="name">Kursnamn</label>
+                <input type="text" name="name" id="name"> <br>
+                <label for="prog">Nivå</label>
+                <input type="text" name="prog" id="prog"> <br>
+                <label for="plan">Kursplan</label>
+                <input type="text" name="plan" id="plan"> <br>
+                <input type="submit" id="addButton">
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>Philip</p>
+    </footer>
+</main>
 
     <script
     src="https://kit.fontawesome.com/ab924046e2.js"
