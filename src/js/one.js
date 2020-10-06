@@ -23,12 +23,14 @@ function getCourses() {
     .then(data => {
         data.forEach(course => {
             coursesEl.innerHTML +=
-            `<div class="course"><p class="box1">${course.code} </p>
-            <p class="box2"> ${course.course_name} </p>
-            <p class="box3"> ${course.progression} </p>
-            <a class="box4" href="${course.syllabus}" target="_blank">Klicka här</a>
+            `<div class="courses">
+            <p class="row1">${course.code} </p>
+            <p class="row2"> ${course.course_name} </p>
+            <p class="row3"> ${course.progression} </p>
+            <a class="row4" href="${course.syllabus}" target="_blank">Kursplan</a>
             <button id="${course.id}" onClick="deleteCourse(${course.id})">Radera</button>
-            <button id="${course.id}" onClick="getOneToUpdate(${course.id})">Updatera</button></div>`;
+            <button id="${course.id}" onClick="getOneToUpdate(${course.id})">Updatera</button>
+            </div>`;
         });
     })
 }

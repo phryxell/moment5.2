@@ -1,0 +1,44 @@
+#updateDiv {
+    display: none;
+    border: $second-color solid 1px;
+    width: 70%;
+    position: fixed;
+    top: 150px;
+    background-color: $first-color;
+    
+
+    form{
+        margin: 100px 300px;
+
+
+    label {
+        color: $hover-color;
+        font-weight: $bold-weight;
+    }
+    input {
+        border: paleturquoise 1px solid;
+    }
+    #code{
+        margin-left: 16px;
+    }
+    // #name {
+
+    // }
+    #prog {
+        margin-left: 44px;
+    }
+    #plan {
+        margin-left: 10px;
+    }
+    #updateButton {
+        @include button;
+    }
+    #closeButton {
+        @include button;
+    }
+
+
+
+
+    }
+}

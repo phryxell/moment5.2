@@ -1,17 +1,8 @@
-
-body {
-  background: black;
-  color: white;
-  height: 100vh;
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.2;
-}
-
-footer {
-  font-size: 1rem;
-  position: fixed;
-  bottom: 0.4rem;
-  right: 1rem;
-  text-align: right;
-  padding: 1rem;
-}
+@import 'reset';
+@import 'base';
+@import 'basic';
+@import 'table';
+@import 'header';
+@import 'footer';
+@import 'form';
+@import 'updatediv';

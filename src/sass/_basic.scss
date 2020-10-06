@@ -1,0 +1,25 @@
+body  {
+    background-color: $first-color;
+    color: $second-color;
+    font-family: $font;
+
+    a {
+        text-decoration: none;
+        color: $second-color;
+    }
+    a:hover {
+        color: $hover-color;
+    }
+
+        main {
+        width: 70%;
+        margin: auto;
+
+        section {
+            h2 {
+                font-family: $font;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

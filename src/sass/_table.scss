@@ -1,0 +1,60 @@
+.course {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    p {
+        font-family: $font;
+        font-weight: $normal-weight;
+    }
+
+    .row1 {
+        width: 15%;
+        padding: 5px 0;
+    }
+    .row2 {
+        width: 55%;
+        padding: 5px 0;
+    }
+    .row3 {
+        width: 15%;
+        padding: 5px 0;
+    }
+    .row4 {
+        width: 15%;
+        padding: 5px 0;
+        text-align: end;
+    }
+    button {
+        background-color: $first-color;
+        color: $second-color;
+        border: none;
+        margin: 15px 0 40px 0;
+        cursor: pointer;
+    }
+    button:hover {
+        color: $hover-color;
+    }
+}
+
+.heading {
+    display: flex;
+    flex-wrap: wrap; 
+    .row1 {
+        width: 15%;
+        padding: 5px 0;
+    }
+    .row2 {
+        width: 54%;
+        padding: 5px 0;
+    }
+    .row3 {
+        width: 16%;
+        padding: 5px 0;
+    }
+    .row4 {
+        width: 15%;
+        padding: 5px 0;
+        text-align: end;
+    }
+}
