@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: $font;
+    margin: 0;
+    background-color: $background;
+  
+  }
+  
+  #container {
+    max-width: 900px;
+    padding: 0 1.5em;
+    margin: 0 auto;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 4em;
+  
+    th,
+    td {
+      padding: 1em;
+    }
+  
+    th {
+      background-color: lighten($black, 10);
+      color: white;
+      text-align: left;
+    }
+  
+    tr:nth-child(even) {
+      background-color: $gray;
+    }
+  }
+  
+  a,
+  a:active,
+  a:visited {
+    color: $black;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  label {
+    width: 49%;
+    float: left;
+    margin-bottom: 2em;
+    font-weight: bold;
+  
+    .inputField {
+      width: 100%;
+      padding: 0.4em 0 0.4em 0.4em;
+      margin-top: 0.5em;
+      font: inherit;
+      font-weight: normal;
+    }
+  }
+  
+  .rightLabel {
+    float: right;
+  }
+  
+  #formBtn {
+    width: 26%;
+    border: none;
+    color: white;
+    background-color: $black;
+    text-transform: uppercase;
+    font: inherit;
+    font-weight: bold;
+    border-radius:10px;
+    padding: 1em;
+    margin-bottom: 3em;
+    float: right;
+  }
+  
+  #formBtn:hover {
+    cursor: pointer;
+  }
+  
+  #msg {
+    color: $error;
+    font-weight: bold;
+  }
+  
+  footer {
+    clear: both;
+    text-align: center;
+    font-weight: bold;
+  }

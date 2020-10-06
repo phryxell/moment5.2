@@ -1,17 +1,5 @@
-$font: 'Quicksand', sans-serif;
-$normal-weight: 300;
-$bold-weight: 700;
-
-$first-color: black;
-$second-color: white;
-$hover-color: magenta;
-
-
-@mixin button {
-    width: 265px;
-    background-color: $hover-color;
-    color: $first-color;
-    font-weight: $bold-weight;
-    border: none;
-    padding: 5px;
-}
+$font: arial;
+$black: #272727;
+$gray: #bdbdbd;
+$error: red;
+$background: #A3B18A

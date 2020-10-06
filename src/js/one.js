@@ -16,24 +16,21 @@ window.addEventListener('load', getCourses);
 addButton.addEventListener('click', addCourse);
 
 function getCourses() {
-    coursesEl.innerHTML = '';
     // Call
     fetch('https://studenter.miun.se/~phno1900/moment5/api/read.php')
     .then(response => response.json())
     .then(data => {
+      let output = "";
         data.forEach(course => {
-            coursesEl.innerHTML +=
-            `<div class="courses">
-            <p class="row1">${course.code} </p>
-            <p class="row2"> ${course.course_name} </p>
-            <p class="row3"> ${course.progression} </p>
-            <a class="row4" href="${course.syllabus}" target="_blank">Kursplan</a>
-            <button id="${course.id}" onClick="deleteCourse(${course.id})">Radera</button>
-            <button id="${course.id}" onClick="getOneToUpdate(${course.id})">Updatera</button>
-            </div>`;
-        });
+        output += `<tr><td>${course.code}</td><td>${course.course_name}</td><td>${course.progression}</td><td>
+        <a href='${course.syllabus}' title='Kursplan för ${course.code}' target='_blank'>Webblänk</a></td></tr>
+        </br>
+        <button id="${course.id}" onClick="deleteCourse(${course.id})">Radera</button>
+        <button id="${course.id}" onClick="getOneToUpdate(${course.id})">Updatera</button>`;
+      });
+      document.getElementById('coursesOutput').innerHTML = output;
     })
-}
+};
 
 function deleteCourse(id) {
     fetch('https://studenter.miun.se/~phno1900/moment5/api/delete.php?id=' + id, {

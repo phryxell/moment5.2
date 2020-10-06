@@ -15,27 +15,28 @@
 
   <main>
     <header>
-        <h1>Moment 5 - Webbtjänster</h1>
-        <h2>DT173G</h2>
+        <h1>DT173G - Webbutveckling III | Moment 5 - Webbtjänster</h1>
     </header>
 
-    <div class="content">
-
-        <div id="updateDiv"></div>
-        
-
+    <div id="container">
         <section>
-            <h2>Kurser jag har läst:</h2>
-            <div>
-                <div class="heading">
-                    <p class="box1">Kurskod</p>
-                    <p class="box2">Kursnamn</p>
-                    <p class="box3">Nivå</p>
-                    <p class="box4">Kursplan</p>
-                </div>
-                <div id="courses"></div> <!-- Where the courses goes -->
-            </div>
+          <h2>Genomförda kurser</h2>
+          <hr />
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Kurskod</th>
+                <th>Kursnamn</th>
+                <th>Progression</th>
+                <th>Kursplan</th>
+              </tr>
+            </thead>
+            <tbody id="coursesOutput">
+              <!-- HTML Output -->
+            </tbody>
+          </table>
         </section>
+        <hr />
         <section>
             <h2>Lägg till ny kurs</h2>
             <form method="get">
@@ -50,7 +51,12 @@
                 <input type="submit" id="addButton">
             </form>
         </section>
-    </div>
+        <footer>
+          <p>DT173G - Webbutveckling III | Moment 5 - Webbtjänster</p>
+        </footer>
+      </div>
+
+      <div id="updateDiv"></div>
 
 
     <footer>
