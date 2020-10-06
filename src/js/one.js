@@ -26,7 +26,7 @@ function getCourses() {
             `<div class="course"><p class="box1">${course.code} </p>
             <p class="box2"> ${course.course_name} </p>
             <p class="box3"> ${course.progression} </p>
-            <a class="box4" href="${course.course_plan}" target="_blank">Klicka här</a>
+            <a class="box4" href="${course.syllabus}" target="_blank">Klicka här</a>
             <button id="${course.id}" onClick="deleteCourse(${course.id})">Radera</button>
             <button id="${course.id}" onClick="getOneToUpdate(${course.id})">Updatera</button></div>`;
         });
@@ -52,7 +52,7 @@ function addCourse() {
     prog = prog.value;
     plan = plan.value;
 
-    let course = {'code' : code, 'course_name' : name, 'progression' : prog, 'course_plan' : plan};
+    let course = {'code' : code, 'course_name' : name, 'progression' : prog, 'syllabus' : plan};
 
     fetch('https://studenter.miun.se/~phno1900/moment5/api/create.php', {
         method: 'POST',
@@ -71,7 +71,7 @@ function addCourse() {
 
 function getOneToUpdate(id) {
     // Call
-    fetch('https://studenter.miun.se/~phno1900/moment5/api/read_single.php?id=' + id)
+    fetch('https://studenter.miun.se/~phno1900/moment5/api/readOne.php?id=' + id)
     .then(response => response.json())
     .then(updateDiv.style.display = 'block')
     .then(course => {
@@ -84,7 +84,7 @@ function getOneToUpdate(id) {
             <label for="prog">Nivå</label>
             <input type="text" name="prog" id="newprog" value="${course.progression}"> <br>
             <label for="plan">Kursplan</label>
-            <input type="text" name="plan" id="newplan" value="${course.course_plan}"> <br>
+            <input type="text" name="plan" id="newplan" value="${course.syllabus}"> <br>
             <input type="submit" id="updateButton" onClick="updateCourse(${course.id})" value="Uppdatera kurs"> <br>      
             <input type="submit" id="closeButton" onClick="closeDiv()" value="Avbryt">
             </form>`     
@@ -105,7 +105,7 @@ function updateCourse(id) {
     newprog = newprog.value;
     newplan = newplan.value;
 
-    let course = {'id': id, 'code' : newcode, 'course_name' : newname, 'progression' : newprog, 'course_plan' : newplan};
+    let course = {'id': id, 'code' : newcode, 'course_name' : newname, 'progression' : newprog, 'syllabus' : newplan};
 
     fetch('https://studenter.miun.se/~phno1900/moment5/api/update.php?id=' + id, {
         method: 'PUT',
