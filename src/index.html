@@ -40,28 +40,34 @@
         <section>
             <h2>Lägg till ny kurs</h2>
             <form method="get">
-                <label for="code">Kurskod</label>
-                <input type="text" name="code" id="code"> <br>
-                <label for="name">Kursnamn</label>
-                <input type="text" name="name" id="name"> <br>
-                <label for="prog">Nivå</label>
-                <input type="text" name="prog" id="prog"> <br>
-                <label for="plan">Kursplan</label>
-                <input type="text" name="plan" id="plan"> <br>
-                <input type="submit" id="addButton">
+                <label>
+                    Kurskod: <br />
+                    <input type="text" name="c_code" id="c_code" class="inputField" required />
+                  </label>
+                  <label class="rightLabel">
+                    Kursnamn: <br />
+                    <input type="text" name="c_name" id="c_name" class="inputField" required />
+                  </label>
+                  <label>
+                    Progression: <br />
+                    <input type="text" name="c_progression" id="c_progression" class="inputField" required />
+                  </label>
+                  <label class="rightLabel">
+                    Kursplan: <br />
+                    <input type="text" name="c_syllabus" id="c_syllabus" class="inputField" required />
+                  </label>
+                  <input type="submit" value="Lägg till kurs" id="formBtn" name="formBtn" />
             </form>
+
+        </section>
+        <br>
+        <section>
+            <div id="updateDiv"></div>
         </section>
         <footer>
           <p>DT173G - Webbutveckling III | Moment 5 - Webbtjänster</p>
         </footer>
       </div>
-
-      <div id="updateDiv"></div>
-
-
-    <footer>
-        <p>Philip</p>
-    </footer>
 </main>
 
     <script

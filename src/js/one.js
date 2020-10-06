@@ -76,14 +76,22 @@ function getOneToUpdate(id) {
     .then(course => {
         updateDiv.innerHTML +=
             `<form method="get">
-            <label for="code">Kurskod</label>
-            <input type="text" name="code" id="newcode" value="${course.code}"> <br>
-            <label for="name">Kursnamn</label>
-            <input type="text" name="name" id="newname" value="${course.course_name}"> <br>
-            <label for="prog">Nivå</label>
-            <input type="text" name="prog" id="newprog" value="${course.progression}"> <br>
-            <label for="plan">Kursplan</label>
-            <input type="text" name="plan" id="newplan" value="${course.syllabus}"> <br>
+            <label>
+                    Kurskod: <br />
+                    <input type="text" name="c_code" id="c_code" class="inputField" required value="${course.code}"> <br>
+            </label>
+            <label class="rightLabel">
+                    Kursnamn: <br />
+                    <input type="text" name="c_name" id="c_name" class="inputField" required value="${course.course_name}"> <br>
+            </label>
+            <label>
+                    Progression: <br />
+                    <input type="text" name="c_progression" id="c_progression" class="inputField" required value="${course.progression}"> <br>
+            </label>
+            <label class="rightLabel">
+                    Kursplan: <br />
+            <input type="text" name="c_syllabus" id="c_syllabus" class="inputField" required value="${course.syllabus}"> <br>
+            </label>
             <input type="submit" id="updateButton" onClick="updateCourse(${course.id})" value="Uppdatera kurs"> <br>      
             <input type="submit" id="closeButton" onClick="closeDiv()" value="Avbryt">
             </form>`     
