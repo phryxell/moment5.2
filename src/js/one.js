@@ -9,11 +9,19 @@ let name = document.getElementById('name');
 let prog = document.getElementById('prog');
 let plan = document.getElementById('plan');
 
+const updateBtn = document.querySelector(".updateBtn");
+const modal = document.querySelector(".form-modal");
 
 
 // Eventlisteners
 window.addEventListener('load', getCourses);
+
 addButton.addEventListener('click', addCourse);
+
+updateBtn.addEventListener("click", ()=>{
+    modal.style.display = "flex";
+})
+
 
 function getCourses() {
     // Call
@@ -26,7 +34,7 @@ function getCourses() {
         <a href='${course.syllabus}' title='Kursplan för ${course.code}' target='_blank'>Webblänk</a></td></tr>
         </br>
         <button id="${course.id}" onClick="deleteCourse(${course.id})">Radera</button>
-        <button id="${course.id}" onClick="getOneToUpdate(${course.id})">Updatera</button>`;
+        <button class="updateBtn" id="${course.id}" onClick="getOneToUpdate(${course.id})">Updatera</button>`;
       });
       document.getElementById('coursesOutput').innerHTML = output;
     })
@@ -72,7 +80,7 @@ function getOneToUpdate(id) {
     // Call
     fetch('https://studenter.miun.se/~phno1900/moment5/api/readOne.php?id=' + id)
     .then(response => response.json())
-    .then(updateDiv.style.display = 'block')
+    .then(modal.style.display = "flex")
     .then(course => {
         updateDiv.innerHTML +=
             `<form method="get">
@@ -92,13 +100,14 @@ function getOneToUpdate(id) {
                     Kursplan: <br />
             <input type="text" name="c_syllabus" id="c_syllabus" class="inputField" required value="${course.syllabus}"> <br>
             </label>
-            <input type="submit" id="updateButton" onClick="updateCourse(${course.id})" value="Uppdatera kurs"> <br>      
-            <input type="submit" id="closeButton" onClick="closeDiv()" value="Avbryt">
-            </form>`     
+            <input type="submit" class="btn" id="updateButton" onClick="updateCourse(${course.id})" value="Uppdatera kurs"> <br>      
+            <input type="submit" class="btn" id="closeButton" onClick="closeDiv()" value="Avbryt">
+            </form>
+            `     
     })
 }
 
-//closeDiv = () => {updateDiv.style.display = 'none'};
+closeDiv = () => {updateDiv.style.display = 'none'};
 
 function updateCourse(id) {
     

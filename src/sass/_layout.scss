@@ -67,24 +67,6 @@
     float: right;
   }
   
-  #formBtn {
-    width: 26%;
-    border: none;
-    color: white;
-    background-color: $black;
-    text-transform: uppercase;
-    font: inherit;
-    font-weight: bold;
-    border-radius:10px;
-    padding: 1em;
-    margin-bottom: 3em;
-    float: right;
-  }
-  
-  #formBtn:hover {
-    cursor: pointer;
-  }
-  
   #msg {
     color: $error;
     font-weight: bold;
