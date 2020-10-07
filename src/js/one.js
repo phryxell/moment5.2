@@ -54,12 +54,12 @@ function deleteCourse(id) {
 }
 
 function addCourse() {
-    code = code.value;
-    name = name.value;
-    prog = prog.value;
-    plan = plan.value;
+    c_code = c_code.value;
+    c_name = c_name.value;
+    c_progression = c_progression.value;
+    c_syllabus = c_syllabus.value;
 
-    let course = {'code' : code, 'course_name' : name, 'progression' : prog, 'syllabus' : plan};
+    let course = {'code' : c_code, 'course_name' : c_name, 'progression' : c_progression, 'syllabus' : c_syllabus};
 
     fetch('https://studenter.miun.se/~phno1900/moment5/api/create.php', {
         method: 'POST',
@@ -107,7 +107,7 @@ function getOneToUpdate(id) {
     })
 }
 
-closeDiv = () => {updateDiv.style.display = 'none'};
+//closeDiv = () => {updateDiv.style.display = 'none'};
 
 function updateCourse(id) {
     
