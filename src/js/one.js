@@ -18,10 +18,6 @@ window.addEventListener('load', getCourses);
 
 addButton.addEventListener('click', addCourse);
 
-updateBtn.addEventListener("click", ()=>{
-    modal.style.display = "flex";
-})
-
 
 function getCourses() {
     // Call
@@ -31,10 +27,10 @@ function getCourses() {
       let output = "";
         data.forEach(course => {
         output += `<tr><td>${course.code}</td><td>${course.course_name}</td><td>${course.progression}</td><td>
-        <a href='${course.syllabus}' title='Kursplan för ${course.code}' target='_blank'>Webblänk</a></td></tr>
-        </br>
-        <button id="${course.id}" onClick="deleteCourse(${course.id})">Radera</button>
-        <button class="updateBtn" id="${course.id}" onClick="getOneToUpdate(${course.id})">Updatera</button>`;
+        <a href='${course.syllabus}' title='Kursplan för ${course.code}' target='_blank'>Webblänk</a></td>
+        <td><span class="deleteBtn" id="${course.id}" onClick="deleteCourse(${course.id})">Radera</span></td>
+        <td> <span class="updateBtn" id="${course.id}" onClick="getOneToUpdate(${course.id})">Uppdatera</span></td></tr>
+       `;
       });
       document.getElementById('coursesOutput').innerHTML = output;
     })
