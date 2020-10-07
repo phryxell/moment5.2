@@ -54,12 +54,12 @@ function deleteCourse(id) {
 }
 
 function addCourse() {
-    c_code = c_code.value;
-    c_name = c_name.value;
-    c_progression = c_progression.value;
-    c_syllabus = c_syllabus.value;
+    code = code.value;
+    name = name.value;
+    prog = prog.value;
+    plan = plan.value;
 
-    let course = {'code' : c_code, 'course_name' : c_name, 'progression' : c_progression, 'syllabus' : c_syllabus};
+    let course = {'code' : code, 'course_name' : name, 'progression' : prog, 'course_plan' : plan};
 
     fetch('https://studenter.miun.se/~phno1900/moment5/api/create.php', {
         method: 'POST',
@@ -86,19 +86,19 @@ function getOneToUpdate(id) {
             `<form method="get">
             <label>
                     Kurskod: <br />
-                    <input type="text" name="c_code" id="c_code" class="inputField" required value="${course.code}"> <br>
+                    <input type="text" name="code" id="newcode" class="inputField" required value="${course.code}"> <br>
             </label>
             <label class="rightLabel">
                     Kursnamn: <br />
-                    <input type="text" name="c_name" id="c_name" class="inputField" required value="${course.course_name}"> <br>
+                    <input type="text" name="name" id="newname" class="inputField" required value="${course.course_name}"> <br>
             </label>
             <label>
                     Progression: <br />
-                    <input type="text" name="c_progression" id="c_progression" class="inputField" required value="${course.progression}"> <br>
+                    <input type="text" name="prog" id="newprog" class="inputField" required value="${course.progression}"> <br>
             </label>
             <label class="rightLabel">
                     Kursplan: <br />
-            <input type="text" name="c_syllabus" id="c_syllabus" class="inputField" required value="${course.syllabus}"> <br>
+            <input type="text" name="syllabus" id="newsyllabus" class="inputField" required value="${course.syllabus}"> <br>
             </label>
             <input type="submit" class="btn" id="updateButton" onClick="updateCourse(${course.id})" value="Uppdatera kurs"> <br>      
             <input type="submit" class="btn" id="closeButton" onClick="closeDiv()" value="Avbryt">
@@ -114,14 +114,14 @@ function updateCourse(id) {
     let newcode = document.getElementById('newcode');
     let newname = document.getElementById('newname');
     let newprog = document.getElementById('newprog');
-    let newplan = document.getElementById('newplan');
+    let newplan = document.getElementById('newsyllabus');
 
     newcode = newcode.value;
     newname = newname.value;
     newprog = newprog.value;
-    newplan = newplan.value;
+    newsyllabus = newsyllabus.value;
 
-    let course = {'id': id, 'code' : newcode, 'course_name' : newname, 'progression' : newprog, 'syllabus' : newplan};
+    let course = {'id': id, 'code' : newcode, 'course_name' : newname, 'progression' : newprog, 'syllabus' : newsyllabus};
 
     fetch('https://studenter.miun.se/~phno1900/moment5/api/update.php?id=' + id, {
         method: 'PUT',
