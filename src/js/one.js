@@ -7,7 +7,7 @@ let updateDiv = document.getElementById('updateDiv');
 let code = document.getElementById('code');
 let name = document.getElementById('name');
 let prog = document.getElementById('prog');
-let plan = document.getElementById('plan');
+let syllabus = document.getElementById('syllabus');
 
 const updateBtn = document.querySelector(".updateBtn");
 const modal = document.querySelector(".form-modal");
@@ -54,12 +54,12 @@ function deleteCourse(id) {
 }
 
 function addCourse() {
-    code = code.value;
-    name = name.value;
-    prog = prog.value;
-    plan = plan.value;
+    code = c_code.value;
+    name = c_name.value;
+    prog = c_progression.value;
+    syllabus = c_syllabus.value;
 
-    let course = {'code' : code, 'course_name' : name, 'progression' : prog, 'course_plan' : plan};
+    let course = {'code' : code, 'course_name' : name, 'progression' : prog, 'syllabus' : syllabus};
 
     fetch('https://studenter.miun.se/~phno1900/moment5/api/create.php', {
         method: 'POST',
@@ -114,7 +114,7 @@ function updateCourse(id) {
     let newcode = document.getElementById('newcode');
     let newname = document.getElementById('newname');
     let newprog = document.getElementById('newprog');
-    let newplan = document.getElementById('newsyllabus');
+    let newsyllabus = document.getElementById('newsyllabus');
 
     newcode = newcode.value;
     newname = newname.value;
