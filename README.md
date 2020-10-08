@@ -1,6 +1,8 @@
 # Moment 5.2
 
 Detta repository innehåller kod som konsumerar ett REST-API, [moment5.1](https://studenter.miun.se/~phno1900/moment5/api/read.php).
+Detta sker genom JavaScript-metoden fetch().
+Olika fetch() genomförs beroende på önskad åtgärd.
 
 Applikationen finns att testa [här](https://studenter.miun.se/~phno1900/moment5/).
 
