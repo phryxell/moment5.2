@@ -1,0 +1,30 @@
+a,
+  a:active,
+  a:visited {
+    color: $dark;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  label {
+    width: 49%;
+    float: left;
+    margin-bottom: 2em;
+    font-weight: bold;
+  
+    .inputField {
+      width: 100%;
+      padding: 0.4em 0 0.4em 0.4em;
+      margin-top: 0.5em;
+      font: inherit;
+      font-weight: normal;
+    }
+    .inputField:hover {
+      background-color: lighten($orange, 25%);
+      cursor: pointer;
+    }
+  }

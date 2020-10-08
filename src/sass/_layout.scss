@@ -1,38 +1,13 @@
 header{
   h1{
     margin-top:1em;
+    text-align: center;
   }
 }
 
 #container {
     max-width: 900px;
     padding: 0 1.5em;
-  }
-  
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 4em;
-  
-    thead,
-    tr {
-      padding: 2em;
-    }
-  
-    th {
-      background-color: lighten($dark, 10);
-      color: white;
-      text-align: left;
-      padding: 1em 1em 1em 0.5em;
-    }
-
-    td{
-      padding:2em 1em 2em 0.5em;
-    }
-  
-    td:nth-child(n+3) {
-      text-align: center;
-    }
   }
   
   #coursesOutput span{
@@ -50,38 +25,6 @@ header{
   #coursesOutput span:hover{
       background-color:#111;
       color:#fff;
-  }
-
-
-  a,
-  a:active,
-  a:visited {
-    color: $dark;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    color: black;
-    text-decoration: underline;
-  }
-  
-  label {
-    width: 49%;
-    float: left;
-    margin-bottom: 2em;
-    font-weight: bold;
-  
-    .inputField {
-      width: 100%;
-      padding: 0.4em 0 0.4em 0.4em;
-      margin-top: 0.5em;
-      font: inherit;
-      font-weight: normal;
-    }
-    .inputField:hover {
-      background-color: lighten($orange, 25%);
-      cursor: pointer;
-    }
   }
 
   section{

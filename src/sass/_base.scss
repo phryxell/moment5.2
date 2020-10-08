@@ -1,3 +1,14 @@
 $font: 'Poppins', sans-serif;
 $dark: #2d3142;
 $orange: #ef8354;
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+body {
+    font-family: $font;
+    line-height: 1.2;
+    min-height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
