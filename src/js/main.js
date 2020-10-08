@@ -19,13 +19,13 @@ addButton.addEventListener('click', addCourse);
 
 // Function to close the update-form
 function closeDiv(){
-    modal.style.display = "flex";
+    modal.style.display = "none";
     }
 
 
 
 function getCourses() {
-    // Call
+    // Fetch api - get all courses - Output all courses in table-format with options to update or delete
     fetch('https://studenter.miun.se/~phno1900/moment5/api/read.php')
     .then(response => response.json())
     .then(data => {
@@ -42,6 +42,7 @@ function getCourses() {
 };
 
 function deleteCourse(id) {
+    // Delete course based on given ID
     fetch('https://studenter.miun.se/~phno1900/moment5/api/delete.php?id=' + id, {
         method: 'DELETE'
     })
@@ -55,6 +56,7 @@ function deleteCourse(id) {
 }
 
 function addCourse() {
+    // Add course to database - then call getCourses() to present all courses again/update courses to show the newly added course
     code = c_code.value;
     name = c_name.value;
     prog = c_progression.value;
@@ -78,7 +80,8 @@ function addCourse() {
 
 
 function getOneToUpdate(id) {
-    // Call
+    // Call readOne to get specific course chosen - then present the update-form in updateDiv and pass in variables to update
+    // Add options to either update course or cancel the update-form
     fetch('https://studenter.miun.se/~phno1900/moment5/api/readOne.php?id=' + id)
     .then(response => response.json())
     .then(modal.style.display = "flex")
