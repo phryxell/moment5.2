@@ -78,6 +78,10 @@ header{
       font: inherit;
       font-weight: normal;
     }
+    .inputField:hover {
+      background-color: lighten($orange, 25%);
+      cursor: pointer;
+    }
   }
 
   section{

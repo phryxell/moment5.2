@@ -8,8 +8,6 @@ let code = document.getElementById('code');
 let name = document.getElementById('name');
 let prog = document.getElementById('prog');
 let syllabus = document.getElementById('syllabus');
-
-const updateBtn = document.querySelector(".updateBtn");
 const modal = document.querySelector(".form-modal");
 
 
@@ -17,6 +15,13 @@ const modal = document.querySelector(".form-modal");
 window.addEventListener('load', getCourses);
 
 addButton.addEventListener('click', addCourse);
+
+
+// Function to close the update-form
+function closeDiv(){
+    modal.style.display = "flex";
+    }
+
 
 
 function getCourses() {
@@ -102,8 +107,6 @@ function getOneToUpdate(id) {
             `     
     })
 }
-
-//closeDiv = () => {updateDiv.style.display = 'none'};
 
 function updateCourse(id) {
     
