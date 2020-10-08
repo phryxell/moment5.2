@@ -10,7 +10,7 @@ Det skall gå att läsa kurser och skapa, uppdatera samt radera kurser.
 
 ```
  - Klona projektet genom $ git clone https://github.com/phryxell/moment5.2.git 
- - Dirigera in i arbetsmappen moment2  $ cd  moment4 
+ - Dirigera in i arbetsmappen moment4  $ cd  moment4
  - Installera alla nödvändiga moduler  $ npm install 
  - Initiera gulpjs i terminalen genom  $ gulp 
  ```
